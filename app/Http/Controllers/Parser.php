@@ -11,7 +11,7 @@ class Parser extends Controller
     {
         $contents = $request->parser_config['file']->store('xlsx');
         $extension = $request->parser_config['file']->extension();
-        if (('xlsx' == $extension) AND ('xls' == $extension)) {
+        if (('xlsx' == $extension) OR ('xls' == $extension)) {
             $columns = \App\Parser::getColumns($request->parser_config);
             $resultParser = \App\Parser::goParser($contents, $columns);
 
